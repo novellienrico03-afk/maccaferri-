@@ -32,32 +32,19 @@
             line-height: 1.6;
         }
 
-        /* --- EFFETTI LUCE AMBIENTALE --- */
-        .ambient-glow-blue {
-            position: fixed; top: -20%; right: -10%; width: 60vw; height: 60vw;
-            background: radial-gradient(circle, rgba(0, 59, 92, 0.25) 0%, rgba(0,0,0,0) 60%);
-            border-radius: 50%; z-index: -1; pointer-events: none;
-        }
-        .ambient-glow-green {
-            position: fixed; bottom: -20%; left: -10%; width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(74, 222, 128, 0.08) 0%, rgba(0,0,0,0) 60%);
-            border-radius: 50%; z-index: -1; pointer-events: none;
-        }
-
         /* --- NAVIGAZIONE --- */
         nav {
             position: fixed; top: 0; width: 100%; padding: 20px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(1, 17, 28, 0.6); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            background: rgba(1, 17, 28, 0.5); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border); z-index: 100;
         }
 
-        /* Logo Testuale Originale */
         .logo { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--text-primary); text-decoration: none; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
 
         .nav-links { display: flex; gap: 40px; list-style: none; }
-        .nav-links a { color: var(--text-primary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; opacity: 0.8;}
-        .nav-links a:hover { color: var(--tech-accent); opacity: 1; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
+        .nav-links a:hover { color: var(--tech-accent); }
 
         .btn-tech {
             background: var(--tech-accent); color: var(--bg-deep); padding: 10px 24px; border-radius: 50px;
@@ -67,46 +54,55 @@
         }
         .btn-tech:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(74, 222, 128, 0.4); }
 
-        /* --- HERO & ECOSISTEMA --- */
+        /* --- HERO & ECOSISTEMA VISIBILE --- */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; padding: 120px 20px 60px; position: relative; animation: fadeIn 1.5s ease-out;
             z-index: 1;
         }
 
-        /* SFONDO INFRASTRUTTURA/NATURA (Parallax + Maschera di dissolvenza) */
+        /* L'immagine dell'ingegnere in armonia con la natura, ben visibile */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 120%;
-            /* Immagine di un'infrastruttura (strada di montagna con muri di contenimento) immersa nella natura */
-            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-            background-attachment: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Foto: Ingegnere in cantiere con natura sullo sfondo */
+            background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            background-attachment: fixed; /* Effetto Parallasse */
             z-index: -2;
-            opacity: 0.25; /* Più alta per far vedere l'opera ingegneristica */
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-            mix-blend-mode: luminosity; 
+            opacity: 0.75; /* Alta opacità, l'immagine è la protagonista */
+        }
+
+        /* Il gradiente che parte trasparente e diventa blu notte in fondo, per fondersi col resto del sito */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(1, 17, 28, 0.2) 0%, rgba(1, 17, 28, 0.6) 60%, rgba(1, 17, 28, 1) 100%);
+            z-index: -1;
         }
 
         .eyebrow {
             font-family: 'Inter', sans-serif; color: var(--tech-accent); font-size: 0.8rem; font-weight: 600;
             text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; 
-            border: 1px solid rgba(74, 222, 128, 0.3); padding: 8px 20px; border-radius: 50px;
-            background: rgba(74, 222, 128, 0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 222, 128, 0.5); padding: 8px 20px; border-radius: 50px;
+            background: rgba(1, 17, 28, 0.6); backdrop-filter: blur(5px);
         }
 
         .hero h1 {
             font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 30px;
-            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            color: #ffffff; text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
-        .hero p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-secondary); max-width: 650px; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .hero p { 
+            font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.9); max-width: 650px; margin-bottom: 50px; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); font-weight: 500;
+        }
 
         /* --- TECH SPECS --- */
         .tech-specs {
             display: flex; justify-content: center; gap: clamp(30px, 5vw, 80px); padding: 40px 60px;
-            background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(15px);
+            background: rgba(1, 17, 28, 0.6); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
         .spec-item { text-align: left; }
@@ -269,9 +265,6 @@
     </style>
 </head>
 <body>
-
-    <div class="ambient-glow-blue"></div>
-    <div class="ambient-glow-green"></div>
 
     <nav>
         <a href="#" class="logo">MACCAFERRI</a>
