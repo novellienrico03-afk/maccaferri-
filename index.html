@@ -61,6 +61,7 @@
             background: var(--tech-accent); color: var(--bg-deep); padding: 10px 24px; border-radius: 50px;
             font-size: 0.9rem; font-weight: 700; text-decoration: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+            cursor: pointer; display: inline-block;
         }
         .btn-tech:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(74, 222, 128, 0.4); }
 
@@ -107,7 +108,6 @@
         }
         .bento-card:hover { border-color: var(--glass-border-hover); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 
-        /* Indicatore Cliccabile */
         .expand-cue {
             position: absolute; top: 25px; right: 25px; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px);
             padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: var(--text-primary);
@@ -125,7 +125,6 @@
         .bento-card h3 { font-size: 1.8rem; letter-spacing: -0.02em; margin-bottom: 10px; }
         .bento-card p { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
 
-        /* Mini-lista per riempire lo spazio vuoto della card principale */
         .tech-list { margin-top: 20px; list-style: none; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--tech-accent); }
         .tech-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
         .tech-list li::before { content: '✓'; font-weight: bold; }
@@ -157,7 +156,7 @@
             position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border);
             color: #fff; width: 45px; height: 45px; border-radius: 50%; cursor: pointer;
             font-size: 1.2rem; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px);
-            transition: background 0.3s;
+            transition: background 0.3s; z-index: 10;
         }
         .btn-close:hover { background: var(--tech-accent); color: var(--bg-deep); }
 
@@ -187,10 +186,43 @@
         .timeline-content h3 { font-size: 1.5rem; margin-bottom: 15px; }
         .timeline-content p { color: var(--text-secondary); font-size: 0.95rem; }
 
-        /* --- FOOTER --- */
-        footer { background: rgba(0, 59, 92, 0.2); border-top: 1px solid var(--glass-border); padding: 60px 5% 30px; text-align: center; }
-        footer .logo { font-size: 2rem; margin-bottom: 20px; display: block; }
-        footer p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; }
+        /* --- FOOTER CON CERTIFICAZIONI --- */
+        footer { background: rgba(0, 59, 92, 0.2); border-top: 1px solid var(--glass-border); padding: 80px 5% 40px; }
+        
+        .footer-container {
+            max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px;
+        }
+
+        .footer-brand .logo { font-size: 2rem; margin-bottom: 15px; display: block; }
+        .footer-brand p { color: var(--text-secondary); font-size: 0.95rem; max-width: 400px; }
+
+        .footer-certs h4 {
+            font-family: 'JetBrains Mono', monospace; color: var(--text-secondary);
+            font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 20px; text-transform: uppercase;
+        }
+
+        .badges-wrapper { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        .cert-badge {
+            display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.03);
+            padding: 12px 24px; border-radius: 16px; border: 1px solid var(--glass-border);
+            color: var(--text-primary); text-decoration: none; transition: all 0.3s ease; cursor: pointer;
+        }
+        
+        .cert-badge:hover {
+            border-color: var(--tech-accent); transform: translateY(-3px); background: rgba(255,255,255,0.08);
+            box-shadow: 0 10px 20px rgba(74, 222, 128, 0.1);
+        }
+
+        .cert-badge svg { width: 28px; height: 28px; color: var(--tech-accent); }
+        
+        .cert-text { display: flex; flex-direction: column; font-weight: 700; font-size: 0.9rem; line-height: 1.2; }
+        .cert-text small { font-weight: 400; color: var(--text-secondary); font-size: 0.75rem; }
+
+        .footer-bottom {
+            max-width: 1400px; margin: 60px auto 0; padding-top: 30px; border-top: 1px solid var(--glass-border);
+            text-align: center; color: var(--text-secondary); font-size: 0.8rem; opacity: 0.6;
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
@@ -210,6 +242,8 @@
             .timeline-dot { left: 30px; }
             .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; align-items: flex-end; }
             .timeline-content { width: calc(100% - 70px); }
+            
+            .footer-container { flex-direction: column; }
         }
     </style>
 </head>
@@ -346,7 +380,7 @@
                 <div class="timeline-content">
                     <div class="timeline-year">2006</div>
                     <h3>L'era dei Geosintetici</h3>
-                    <p>Attraverso acquisizioni strategiche (come Linear Composites in UK e BMD in Brasile), Maccaferri entra prepotentemente nel mercato dei geosintetici, geogriglie e rinforzi polimerici ad alta resistenza.</p>
+                    <p>Attraverso acquisizioni strategiche, Maccaferri entra prepotentemente nel mercato dei geosintetici, geogriglie e rinforzi polimerici ad alta resistenza.</p>
                 </div>
             </div>
 
@@ -366,9 +400,48 @@
     </section>
 
     <footer>
-        <span class="logo">MACCAFERRI</span>
-        <p>Officine Maccaferri S.p.A. — Engineering a better solution since 1879.</p>
-        <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 30px;">Concept Design a scopo di portfolio. Non affiliato ufficialmente con l'azienda.</p>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo">MACCAFERRI</span>
+                <p>Officine Maccaferri S.p.A. — Engineering a better solution since 1879. Leader globale nelle soluzioni geotecniche e ambientali avanzate.</p>
+            </div>
+
+            <div class="footer-certs">
+                <h4>Certifications & Awards</h4>
+                <div class="badges-wrapper">
+                    
+                    <div class="cert-badge open-modal"
+                         data-title="Certificazione ISO 9001:2015" 
+                         data-img="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80"
+                         data-content="Rilasciata da Bureau Veritas (Certificato N° IT331370) a Officine Maccaferri Italia S.R.L. e valida fino al 15 Maggio 2027. Campo di applicazione: Commercializzazione di prodotti in rete metallica, geosintetici, prodotti per opere fluviali di difesa del territorio e sistemazione idraulica, protezione ambientale e ingegneria naturalistica, barriere difensive e recinzioni infrastrutturali. Assistenza tecnica sui prodotti.">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <path d="M9 15L11 17L15 13"></path>
+                        </svg>
+                        <div class="cert-text">
+                            ISO 9001:2015
+                            <small>Bureau Veritas (Scad. 2027)</small>
+                        </div>
+                    </div>
+
+                    <a href="https://www.greatplacetowork.it/" target="_blank" rel="noopener noreferrer" class="cert-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <div class="cert-text">
+                            Great Place to Work®
+                            <small>Certified 2024 - 2025</small>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Concept Design a scopo di portfolio. Non affiliato ufficialmente con l'azienda. &copy; 2026.</p>
+        </div>
     </footer>
 
     <div id="techModal" class="modal-overlay">
@@ -378,7 +451,7 @@
             <div class="modal-content-area">
                 <h2 id="modalTitle">Titolo Modale</h2>
                 <p id="modalBody">Contenuto descrittivo del modale.</p>
-                <a href="#contact" class="btn-tech">Scarica Scheda Tecnica Completa</a>
+                <a href="#" class="btn-tech" style="display: inline-block;">Richiedi Informazioni</a>
             </div>
         </div>
     </div>
@@ -392,7 +465,6 @@
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
 
-        // Apri il modale quando si clicca una card
         modals.forEach(card => {
             card.addEventListener('click', () => {
                 modalImg.src = card.getAttribute('data-img');
@@ -400,19 +472,17 @@
                 modalBody.textContent = card.getAttribute('data-content');
                 
                 modalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina sotto
+                document.body.style.overflow = 'hidden'; 
             });
         });
 
-        // Chiudi il modale
         const closeModal = () => {
             modalOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Riattiva lo scroll
+            document.body.style.overflow = 'auto'; 
         };
 
         closeBtn.addEventListener('click', closeModal);
         
-        // Chiudi il modale se si clicca fuori dalla finestra nera
         modalOverlay.addEventListener('click', (e) => {
             if(e.target === modalOverlay) {
                 closeModal();
