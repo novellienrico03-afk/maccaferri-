@@ -1,137 +1,402 @@
-# Maccaferri NextGen - Nature-Based Solutions (NBS)
-## Project Repository Boilerplate
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Maccaferri | Engineering a Better Solution</title>
+    <meta name="description" content="Soluzioni avanzate per l'ingegneria civile, la geotecnica e l'ambiente.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABILI CORPORATE --- */
+        :root {
+            --maccaferri-blue: #003B5C;
+            --eco-green: #4CAF50;
+            --light-bg: #f4f7f6;
+            --text-dark: #333333;
+            --white: #ffffff;
+        }
 
-Questa è la struttura tecnica per la revisione del sito Maccaferri in chiave **Pura Avanguardia**. Il progetto utilizza **Next.js 14**, **Tailwind CSS** per lo styling e **Framer Motion** per le animazioni.
+        /* --- RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
 
----
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-### 1. Struttura del Progetto (File Tree)
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-maccaferri-vanguard/
-├── public/
-│   └── assets/             # Video 4K, Render 3D, Loghi storici
-├── src/
-│   ├── components/         # Componenti UI (Bento, Hero, Map)
-│   │   ├── Hero.tsx
-│   │   ├── VanguardToggle.tsx
-│   │   ├── GlobalMap.tsx
-│   │   └── VanguardCTA.tsx
-│   ├── styles/
-│   │   └── globals.css     # Design System & Custom Animations
-│   ├── types/
-│   │   └── index.ts        # Type definitions per Case Studies e Software
-│   └── app/
-│       └── page.tsx        # Home Page Assembler
-├── tailwind.config.js      # Custom Theme (Mac-Black, Mac-Green)
-└── package.json            # Dependencies
+        /* --- NAVBAR --- */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
 
----
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--maccaferri-blue);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-### 2. Configurazione Design System (`tailwind.config.js`)
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
 
-```javascript
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        'mac-black': '#0a0a0a',     // Deep Black (Apple Style)
-        'mac-green': '#10b981',     // Tech Green (Vanguard)
-        'mac-slate': '#1e293b',     // Engineering Slate
-        'mac-accent': '#f8fafc',    // Pure White for text
-      },
-      fontFamily: {
-        sans: ['Inter', 'SF Pro Display', 'sans-serif'],
-      },
-      letterSpacing: {
-        tighter: '-0.05em',
-        widest: '0.2em',
-      }
-    },
-  },
-  plugins: [],
-}import { motion } from 'framer-motion';
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-export default function Hero() {
-  return (
-    <section className="relative h-screen flex items-center justify-center bg-mac-black overflow-hidden">
-      <div className="absolute inset-0 opacity-30">
-        <video autoPlay loop muted className="w-full h-full object-cover" src="/assets/nature-engineering.mp4" />
-      </div>
-      <div className="relative z-10 text-center px-4">
-        <motion.span 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-mac-green tracking-widest uppercase text-xs font-bold"
-        >
-          Established 1879 — Shaping the Future
-        </motion.span>
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-6 text-6xl md:text-9xl font-bold text-white tracking-tighter"
-        >
-          Riprogrammare <br /> il Pianeta.
-        </motion.h1>
-      </div>
-    </section>
-  );
-} import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+        .nav-links a:hover {
+            color: var(--eco-green);
+        }
 
-export default function VanguardToggle() {
-  const [view, setView] = useState('vision');
+        .btn-outline {
+            border: 2px solid var(--maccaferri-blue);
+            padding: 8px 20px;
+            border-radius: 4px;
+            color: var(--maccaferri-blue) !important;
+        }
 
-  return (
-    <div className="bg-mac-black py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex justify-center mb-16">
-          <div className="inline-flex p-1 bg-white/5 rounded-full border border-white/10">
-            {['vision', 'tech'].map((mode) => (
-              <button
-                key={mode}
-                onClick={() => setView(mode)}
-                className={`px-8 py-2 rounded-full text-sm font-bold transition-all ${
-                  view === mode ? 'bg-mac-green text-black' : 'text-gray-400'
-                }`}
-              >
-                {mode === 'vision' ? 'Visione Estetica' : 'Specifiche Tecniche'}
-              </button>
-            ))}
-          </div>
+        .btn-outline:hover {
+            background-color: var(--maccaferri-blue);
+            color: var(--white) !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            /* Uso un gradiente per scurire l'immagine e rendere il testo leggibile */
+            background: linear-gradient(rgba(0, 59, 92, 0.8), rgba(0, 59, 92, 0.8)), url('https://images.unsplash.com/photo-1541888081604-0617300c3c6d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            color: var(--white);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background-color: var(--eco-green);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 700;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #3e8e41;
+            transform: translateY(-2px);
+        }
+
+        /* --- SEZIONE SOLUZIONI --- */
+        .solutions-section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--maccaferri-blue);
+            margin-bottom: 50px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--eco-green);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--maccaferri-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* --- SEZIONE SOSTENIBILITÀ --- */
+        .sustainability-section {
+            background-color: var(--white);
+            padding: 100px 0;
+        }
+
+        .sustainability-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .sustainability-text {
+            flex: 1;
+        }
+
+        .sustainability-text h2 {
+            font-size: 2.2rem;
+            color: var(--maccaferri-blue);
+            margin-bottom: 15px;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background-color: var(--eco-green);
+            margin-bottom: 25px;
+        }
+
+        .sustainability-text p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .eco-list {
+            list-style: none;
+        }
+
+        .eco-list li {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        .sustainability-image {
+            flex: 1;
+        }
+
+        .sustainability-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- FOOTER COMPLETO --- */
+        footer {
+            background-color: var(--maccaferri-blue);
+            color: var(--white);
+            padding-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .footer-brand p {
+            color: #a0b2bd;
+        }
+
+        .footer-brand .address {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--eco-green);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #a0b2bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            background-color: #002840;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #a0b2bd;
+        }
+
+        /* --- RESPONSIVE DESIGN (MOBILE FIRST) --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Nasconde il menu su mobile */
+            }
+            
+            .sustainability-content {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">MACCAFERRI</a>
+            <ul class="nav-links">
+                <li><a href="#soluzioni">Soluzioni</a></li>
+                <li><a href="#sostenibilita">Sostenibilità</a></li>
+                <li><a href="#contatti" class="btn-outline">Contattaci</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={view}
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.02 }}
-            className="grid md:grid-cols-2 gap-12"
-          >
-            {view === 'vision' ? (
-              <div className="col-span-2 text-center">
-                <h2 className="text-5xl font-light italic text-white italic">"L'armonia è la forma più alta di protezione."</h2>
-              </div>
-            ) : (
-              <div className="col-span-2 bg-white/5 p-12 rounded-3xl border border-white/10 font-mono">
-                <p className="text-mac-green">// DATA_SHEET_V24</p>
-                <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-                  <div><p className="text-gray-500">Resistenza</p><p className="text-2xl text-white">150kN/m</p></div>
-                  <div><p className="text-gray-500">Impatto CO2</p><p className="text-2xl text-white">-35%</p></div>
-                  <div><p className="text-gray-500">Longevità</p><p className="text-2xl text-white">120y</p></div>
-                  <div><p className="text-gray-500">BIM Ready</p><p className="text-2xl text-white">True</p></div>
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Ingegneria per un futuro sostenibile.</h1>
+            <p>Da oltre 140 anni, proteggiamo le persone e l'ambiente con soluzioni geotecniche e civili all'avanguardia.</p>
+            <a href="#soluzioni" class="btn-primary">Scopri le nostre soluzioni</a>
+        </div>
+    </header>
+
+    <section id="soluzioni" class="solutions-section">
+        <div class="container">
+            <h2 class="section-title">Le nostre aree di intervento</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Muri di Sostegno</h3>
+                    <p>Strutture in terra rinforzata e gabbioni per la stabilizzazione dei pendii e la ritenzione dei terreni.</p>
                 </div>
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </div>
-  );
-}
+                <div class="card">
+                    <h3>Difesa del Suolo</h3>
+                    <p>Sistemi per la protezione dall'erosione, controllo dei fiumi e mitigazione dei rischi idrogeologici.</p>
+                </div>
+                <div class="card">
+                    <h3>Infrastrutture</h3>
+                    <p>Rinforzo di pavimentazioni stradali e ferroviarie per prolungare la vita utile delle opere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sostenibilita" class="sustainability-section">
+        <div class="container sustainability-content">
+            <div class="sustainability-text">
+                <h2>L'Ambiente al centro di tutto.</h2>
+                <div class="accent-line"></div>
+                <p>Non costruiamo solo infrastrutture, ma proteggiamo gli ecosistemi. I nostri prodotti sono progettati per integrarsi con la natura, riducendo l'impronta di carbonio e favorendo la rigenerazione della vegetazione locale.</p>
+                <ul class="eco-list">
+                    <li>🌿 Materiali a basso impatto ambientale</li>
+                    <li>♻️ Soluzioni per il controllo dell'erosione</li>
+                    <li>🌍 Certificazioni di sostenibilità internazionali</li>
+                </ul>
+            </div>
+            <div class="sustainability-image">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Integrazione paesaggistica Maccaferri">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contatti">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>MACCAFERRI</h3>
+                <p>Engineering a better solution.</p>
+                <p class="address">Via Kennedy, 10<br>40069 Zola Predosa (BO), Italia</p>
+            </div>
+            <div class="footer-links">
+                <h4>Azienda</h4>
+                <ul>
+                    <li><a href="#">Chi Siamo</a></li>
+                    <li><a href="#">Innovazione</a></li>
+                    <li><a href="#">Carriere</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Risorse</h4>
+                <ul>
+                    <li><a href="#">Software di progettazione</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Webinar</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Officine Maccaferri Concept Redesign. Progetto non ufficiale realizzato per portfolio.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
