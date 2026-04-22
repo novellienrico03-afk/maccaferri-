@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         /* --- CORPORATE DARK SYSTEM --- */
@@ -52,9 +52,10 @@
             border-bottom: 1px solid var(--glass-border); z-index: 100;
         }
 
-        /* --- LOGO GRUPPO INDUSTRIALE --- */
-        .logo { display: flex; flex-direction: column; text-decoration: none; color: var(--text-primary); }
-        .logo-top { font-size: 0.5rem; font-weight: 600; letter-spacing: 0.3em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 2px; }
+        /* --- NUOVO LOGO GRUPPO INDUSTRIALE (Adattato) --- */
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-top { font-size: 0.5rem; font-weight: 600; letter-spacing: 0.25em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 2px; }
         .logo-bottom { font-weight: 900; font-size: 1.4rem; letter-spacing: 0.02em; line-height: 1; }
 
         .nav-links { display: flex; gap: 40px; list-style: none; }
@@ -75,7 +76,7 @@
             text-align: center; padding: 120px 20px 60px; position: relative; animation: fadeIn 1.5s ease-out;
         }
 
-        /* Eyebrow rifinito (Nuovo Font) */
+        /* Eyebrow rifinito (Nuovo Font Inter 600) */
         .eyebrow {
             font-family: 'Inter', sans-serif; color: var(--tech-accent); font-size: 0.8rem; font-weight: 600;
             text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; 
@@ -96,7 +97,8 @@
             background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(10px);
         }
         .spec-item { text-align: left; }
-        .spec-label { font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+        /* Font tecnico monospazio mantenuto solo qui per un look ingegneristico */
+        .spec-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; }
         .spec-value { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
         .spec-value span { color: var(--tech-accent); font-size: 1rem; margin-left: 5px; }
 
@@ -105,7 +107,7 @@
         .section-header { margin-bottom: 60px; display: flex; justify-content: space-between; align-items: flex-end; }
         .section-header h2 { font-size: 3rem; letter-spacing: -0.03em; }
         
-        /* Nuova dicitura CTA professionale */
+        /* Nuova dicitura CTA professionale (Font Inter) */
         .header-cta { font-family: 'Inter', sans-serif; color: var(--text-secondary); font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;}
 
         .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 350px); gap: 20px; }
@@ -191,7 +193,8 @@
         }
         .timeline-content:hover { border-color: rgba(255,255,255,0.2); }
         
-        .timeline-year { font-size: 1.5rem; font-weight: 700; color: var(--tech-accent); margin-bottom: 10px; }
+        /* Font tecnico monospazio mantenuto solo qui per le date storiche */
+        .timeline-year { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--tech-accent); margin-bottom: 10px; }
         .timeline-content h3 { font-size: 1.5rem; margin-bottom: 15px; }
         .timeline-content p { color: var(--text-secondary); font-size: 0.95rem; }
 
@@ -263,8 +266,13 @@
 
     <nav>
         <a href="#" class="logo">
-            <span class="logo-top">Gruppo Industriale</span>
-            <span class="logo-bottom">MACCAFERRI</span>
+            <svg class="logo-icon" width="30" height="30" viewBox="0 0 100 100" fill="none">
+                <path d="M10 90V10H20V80L35 60L50 80L65 60L80 80V10H90V90H80L65 70L50 90L35 70L20 90H10Z" fill="var(--tech-accent)"/>
+            </svg>
+            <div class="logo-text">
+                <span class="logo-top">Gruppo Industriale</span>
+                <span class="logo-bottom">MACCAFERRI</span>
+            </div>
         </a>
         <ul class="nav-links">
             <li><a href="#vision">Vision</a></li>
@@ -415,8 +423,13 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <span class="logo-top">Gruppo Industriale</span>
-                    <span class="logo-bottom">MACCAFERRI</span>
+                    <svg class="logo-icon" width="30" height="30" viewBox="0 0 100 100" fill="none">
+                        <path d="M10 90V10H20V80L35 60L50 80L65 60L80 80V10H90V90H80L65 70L50 90L35 70L20 90H10Z" fill="var(--tech-accent)"/>
+                    </svg>
+                    <div class="logo-text">
+                        <span class="logo-top">Gruppo Industriale</span>
+                        <span class="logo-bottom">MACCAFERRI</span>
+                    </div>
                 </a>
                 <p>Engineering a better solution since 1879. Leader globale nelle soluzioni geotecniche e ambientali avanzate.</p>
             </div>
@@ -466,7 +479,7 @@
             <div class="modal-content-area">
                 <h2 id="modalTitle">Titolo Modale</h2>
                 <p id="modalBody">Contenuto descrittivo del modale.</p>
-                <a href="#" class="btn-tech" style="display: inline-block;">Richiedi Informazioni</a>
+                <a href="#" class="btn-tech" style="display: inline-block;">Scarica Documentazione</a>
             </div>
         </div>
     </div>
@@ -480,6 +493,7 @@
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.getElementById('modalBody');
 
+        // Apri il modale quando si clicca una card
         modals.forEach(card => {
             card.addEventListener('click', () => {
                 modalImg.src = card.getAttribute('data-img');
@@ -487,17 +501,19 @@
                 modalBody.textContent = card.getAttribute('data-content');
                 
                 modalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; 
+                document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina sotto
             });
         });
 
+        // Chiudi il modale
         const closeModal = () => {
             modalOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto'; 
+            document.body.style.overflow = 'auto'; // Riattiva lo scroll
         };
 
         closeBtn.addEventListener('click', closeModal);
         
+        // Chiudi il modale se si clicca fuori dalla finestra nera
         modalOverlay.addEventListener('click', (e) => {
             if(e.target === modalOverlay) {
                 closeModal();
