@@ -12,12 +12,11 @@
     <style>
         /* --- CORPORATE DARK SYSTEM --- */
         :root {
-            /* Colori Maccaferri raffinati per il Dark Mode */
-            --bg-deep: #01111c; /* Un blu notte profondissimo, quasi nero */
-            --bg-surface: rgba(0, 59, 92, 0.4); /* Il Blu Maccaferri classico (#003B5C) reso vetro / opaco */
+            --bg-deep: #01111c; 
+            --bg-surface: rgba(0, 59, 92, 0.4); 
             --text-primary: #ffffff;
             --text-secondary: #94a3b8;
-            --tech-accent: #4ade80; /* Il Verde Eco (#4CAF50) leggermente illuminato per risaltare sul buio */
+            --tech-accent: #4ade80; 
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-border-hover: rgba(74, 222, 128, 0.3);
         }
@@ -35,148 +34,89 @@
 
         /* --- EFFETTI LUCE AMBIENTALE --- */
         .ambient-glow-blue {
-            position: fixed; top: -20%; right: -10%;
-            width: 60vw; height: 60vw;
+            position: fixed; top: -20%; right: -10%; width: 60vw; height: 60vw;
             background: radial-gradient(circle, rgba(0, 59, 92, 0.15) 0%, rgba(0,0,0,0) 60%);
             border-radius: 50%; z-index: -1; pointer-events: none;
         }
-        
         .ambient-glow-green {
-            position: fixed; bottom: -20%; left: -10%;
-            width: 50vw; height: 50vw;
+            position: fixed; bottom: -20%; left: -10%; width: 50vw; height: 50vw;
             background: radial-gradient(circle, rgba(74, 222, 128, 0.05) 0%, rgba(0,0,0,0) 60%);
             border-radius: 50%; z-index: -1; pointer-events: none;
         }
 
-        /* --- NAVIGAZIONE GLASSMORPHISM --- */
+        /* --- NAVIGAZIONE --- */
         nav {
-            position: fixed; top: 0; width: 100%;
-            padding: 20px 5%;
+            position: fixed; top: 0; width: 100%; padding: 20px 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(1, 17, 28, 0.7);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 100;
+            background: rgba(1, 17, 28, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border); z-index: 100;
         }
 
-        .logo {
-            font-weight: 900; font-size: 1.3rem;
-            letter-spacing: 1px; color: var(--text-primary);
-            text-decoration: none;
-        }
-
+        .logo { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--text-primary); text-decoration: none; }
         .nav-links { display: flex; gap: 40px; list-style: none; }
-        .nav-links a {
-            color: var(--text-secondary); text-decoration: none;
-            font-size: 0.9rem; font-weight: 500;
-            transition: color 0.3s ease;
-        }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--tech-accent); }
 
         .btn-tech {
-            background: var(--tech-accent); color: var(--bg-deep);
-            padding: 10px 24px; border-radius: 50px;
+            background: var(--tech-accent); color: var(--bg-deep); padding: 10px 24px; border-radius: 50px;
             font-size: 0.9rem; font-weight: 700; text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 15px rgba(74, 222, 128, 0.2);
         }
-        .btn-tech:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(74, 222, 128, 0.4);
-        }
+        .btn-tech:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(74, 222, 128, 0.4); }
 
-        /* --- HERO IMMERSIVA --- */
+        /* --- HERO --- */
         .hero {
-            min-height: 100vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 120px 20px 60px;
-            position: relative; animation: fadeIn 1.5s ease-out;
+            min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 120px 20px 60px; position: relative; animation: fadeIn 1.5s ease-out;
         }
 
         .eyebrow {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--tech-accent); font-size: 0.85rem;
-            text-transform: uppercase; letter-spacing: 0.2em;
-            margin-bottom: 24px;
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            padding: 6px 16px; border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace; color: var(--tech-accent); font-size: 0.85rem; text-transform: uppercase;
+            letter-spacing: 0.2em; margin-bottom: 24px; border: 1px solid rgba(74, 222, 128, 0.3); padding: 6px 16px; border-radius: 50px;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 6.5rem);
-            font-weight: 900; letter-spacing: -0.04em; line-height: 1;
-            margin-bottom: 30px;
-            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 30px;
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--text-secondary); max-width: 650px;
-            margin-bottom: 50px;
-        }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-secondary); max-width: 650px; margin-bottom: 50px; }
 
-        /* --- DATA SHEET / TECH SPECS --- */
+        /* --- TECH SPECS --- */
         .tech-specs {
-            display: flex; justify-content: center; gap: clamp(30px, 5vw, 80px);
-            padding: 40px 60px;
-            background: var(--bg-surface);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            display: flex; justify-content: center; gap: clamp(30px, 5vw, 80px); padding: 40px 60px;
+            background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(10px);
         }
-
         .spec-item { text-align: left; }
-        .spec-label {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-            color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase;
-        }
+        .spec-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; }
         .spec-value { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
         .spec-value span { color: var(--tech-accent); font-size: 1rem; margin-left: 5px; }
 
-        /* --- GLOBAL IMPACT (I NUMERI) --- */
-        .impact-section {
-            padding: 100px 5%;
-            max-width: 1400px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-        
-        .impact-stat {
-            padding: 40px; text-align: center;
-        }
-        
-        .impact-stat h3 {
-            font-size: 4rem; font-weight: 900; color: var(--text-primary);
-            line-height: 1; margin-bottom: 10px;
-        }
-        
-        .impact-stat p {
-            color: var(--tech-accent); font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;
-        }
-
-        /* --- BENTO GRID SEZIONE SOLUZIONI --- */
+        /* --- BENTO GRID INTERATTIVA --- */
         .bento-section { padding: 120px 5%; max-width: 1400px; margin: 0 auto; }
-        .section-header { margin-bottom: 60px; }
+        .section-header { margin-bottom: 60px; display: flex; justify-content: space-between; align-items: flex-end; }
         .section-header h2 { font-size: 3rem; letter-spacing: -0.03em; }
+        .header-cta { font-family: 'JetBrains Mono', monospace; color: var(--text-secondary); font-size: 0.9rem; }
 
-        .bento-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 350px); gap: 20px;
-        }
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 350px); gap: 20px; }
 
         .bento-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--glass-border); border-radius: 24px;
+            background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: 24px;
             padding: 40px; display: flex; flex-direction: column; justify-content: space-between;
-            position: relative; overflow: hidden; transition: all 0.4s ease;
+            position: relative; overflow: hidden; transition: all 0.4s ease; cursor: pointer;
         }
+        .bento-card:hover { border-color: var(--glass-border-hover); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 
-        .bento-card:hover { border-color: var(--glass-border-hover); transform: translateY(-5px); }
+        /* Indicatore Cliccabile */
+        .expand-cue {
+            position: absolute; top: 25px; right: 25px; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px);
+            padding: 8px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: var(--text-primary);
+            display: flex; align-items: center; gap: 8px; z-index: 10; border: 1px solid var(--glass-border); transition: background 0.3s;
+        }
+        .bento-card:hover .expand-cue { background: var(--tech-accent); color: var(--bg-deep); border-color: var(--tech-accent); }
 
-        .card-large { grid-column: span 2; grid-row: span 2; background: url('https://images.unsplash.com/photo-1541888081604-0617300c3c6d?auto=format&fit=crop&w=2000&q=80') center/cover; }
-        .card-large::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(1, 17, 28, 1) 5%, rgba(1, 17, 28, 0.2) 80%); z-index: 1; }
+        .card-large { grid-column: span 2; grid-row: span 2; background: url('https://images.unsplash.com/photo-1541888081604-0617300c3c6d?auto=format&fit=crop&w=1200&q=80') center/cover; }
+        .card-large::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(1, 17, 28, 0.95) 10%, rgba(1, 17, 28, 0.3) 80%); z-index: 1; }
         .card-large > * { position: relative; z-index: 2; }
         
         .card-wide { grid-column: span 2; }
@@ -185,59 +125,91 @@
         .bento-card h3 { font-size: 1.8rem; letter-spacing: -0.02em; margin-bottom: 10px; }
         .bento-card p { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
 
-        .card-icon {
-            align-self: flex-start; padding: 12px;
-            background: rgba(255,255,255,0.05); border-radius: 12px;
-            border: 1px solid var(--glass-border); color: var(--tech-accent);
-        }
+        /* Mini-lista per riempire lo spazio vuoto della card principale */
+        .tech-list { margin-top: 20px; list-style: none; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--tech-accent); }
+        .tech-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .tech-list li::before { content: '✓'; font-weight: bold; }
 
-        /* --- STORIA E HERITAGE --- */
-        .heritage-section {
-            padding: 100px 5%; max-width: 1000px; margin: 0 auto 100px;
-            text-align: center;
-        }
+        .card-icon { align-self: flex-start; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid var(--glass-border); color: var(--tech-accent); }
 
-        .heritage-section h2 { font-size: 2.5rem; margin-bottom: 30px; }
-        .heritage-section p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 40px; }
+        /* --- MODALE (POPUP) --- */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(1, 17, 28, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            z-index: 2000; display: flex; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease; padding: 20px;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
         
-        .timeline-box {
-            background: var(--bg-surface); border: 1px solid var(--glass-border);
-            border-radius: 20px; padding: 50px;
-            display: flex; align-items: center; justify-content: space-between;
+        .modal-box {
+            background: var(--bg-deep); border: 1px solid var(--glass-border); border-radius: 24px;
+            width: 100%; max-width: 900px; max-height: 90vh; overflow-y: auto;
+            position: relative; transform: translateY(50px); transition: transform 0.4s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-
-        .year { font-size: 5rem; font-weight: 900; color: rgba(255,255,255,0.1); line-height: 1; }
-
-        /* --- FOOTER GLASS --- */
-        footer {
-            background: rgba(0, 59, 92, 0.2);
-            border-top: 1px solid var(--glass-border);
-            padding: 60px 5% 30px; text-align: center;
+        .modal-overlay.active .modal-box { transform: translateY(0); }
+        
+        .modal-img { width: 100%; height: 350px; object-fit: cover; }
+        .modal-content-area { padding: 50px; }
+        .modal-content-area h2 { font-size: 2.5rem; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .modal-content-area p { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; }
+        
+        .btn-close {
+            position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border);
+            color: #fff; width: 45px; height: 45px; border-radius: 50%; cursor: pointer;
+            font-size: 1.2rem; display: flex; justify-content: center; align-items: center; backdrop-filter: blur(5px);
+            transition: background 0.3s;
         }
+        .btn-close:hover { background: var(--tech-accent); color: var(--bg-deep); }
+
+        /* --- HERITAGE TIMELINE --- */
+        .heritage-section { padding: 100px 5%; max-width: 1000px; margin: 0 auto; }
+        .heritage-header { text-align: center; margin-bottom: 80px; }
+        .heritage-header h2 { font-size: 3rem; margin-bottom: 20px; }
+        
+        .timeline { position: relative; }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--glass-border); transform: translateX(-50%); }
+        
+        .timeline-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; width: 100%; position: relative; }
+        .timeline-item:nth-child(even) { flex-direction: row-reverse; }
+        
+        .timeline-dot {
+            width: 20px; height: 20px; background: var(--bg-deep); border: 4px solid var(--tech-accent);
+            border-radius: 50%; position: absolute; left: 50%; transform: translateX(-50%); z-index: 2;
+        }
+        
+        .timeline-content {
+            width: 45%; background: var(--bg-surface); padding: 40px; border-radius: 24px;
+            border: 1px solid var(--glass-border); transition: border-color 0.3s;
+        }
+        .timeline-content:hover { border-color: rgba(255,255,255,0.2); }
+        
+        .timeline-year { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--tech-accent); margin-bottom: 10px; }
+        .timeline-content h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .timeline-content p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* --- FOOTER --- */
+        footer { background: rgba(0, 59, 92, 0.2); border-top: 1px solid var(--glass-border); padding: 60px 5% 30px; text-align: center; }
         footer .logo { font-size: 2rem; margin-bottom: 20px; display: block; }
         footer p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 10px; }
-
-        /* --- ANIMAZIONI --- */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
             .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
             .card-large, .card-wide { grid-column: span 2; }
             .card-small { grid-column: span 1; }
-            .impact-section { grid-template-columns: 1fr; gap: 0; }
-            .impact-stat { padding: 30px 10px; border-bottom: 1px solid var(--glass-border); }
-            .impact-stat:last-child { border-bottom: none; }
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 3rem; }
             .tech-specs { flex-direction: column; gap: 20px; align-items: center; text-align: center; padding: 30px; }
-            .spec-item { text-align: center; }
             .bento-grid { grid-template-columns: 1fr; }
             .card-large, .card-wide, .card-small { grid-column: span 1; min-height: 300px; }
-            .timeline-box { flex-direction: column; gap: 20px; }
+            
+            .timeline::before { left: 30px; }
+            .timeline-dot { left: 30px; }
+            .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; align-items: flex-end; }
+            .timeline-content { width: calc(100% - 70px); }
         }
     </style>
 </head>
@@ -250,11 +222,10 @@
         <a href="#" class="logo">MACCAFERRI</a>
         <ul class="nav-links">
             <li><a href="#vision">Vision</a></li>
-            <li><a href="#solutions">Soluzioni</a></li>
-            <li><a href="#impact">Impatto</a></li>
-            <li><a href="#heritage">Eredità</a></li>
+            <li><a href="#solutions">Architettura</a></li>
+            <li><a href="#heritage">Eredità Storica</a></li>
         </ul>
-        <a href="#contact" class="btn-tech">Scarica Data Sheet</a>
+        <a href="#contact" class="btn-tech">Richiedi Consulenza</a>
     </nav>
 
     <header class="hero" id="vision">
@@ -272,42 +243,45 @@
                 <div class="spec-value">120<span>Anni</span></div>
             </div>
             <div class="spec-item">
-                <div class="spec-label">// RESISTENZA TRAZIONE</div>
-                <div class="spec-value">150<span>kN/m</span></div>
+                <div class="spec-label">// PRESENZA GLOBALE</div>
+                <div class="spec-value">100+<span>Paesi</span></div>
             </div>
         </div>
     </header>
 
-    <section class="impact-section" id="impact">
-        <div class="impact-stat">
-            <h3>100+</h3>
-            <p>Paesi serviti nel mondo</p>
-        </div>
-        <div class="impact-stat">
-            <h3>70</h3>
-            <p>Stabilimenti produttivi</p>
-        </div>
-        <div class="impact-stat">
-            <h3>3000+</h3>
-            <p>Esperti globali</p>
-        </div>
-    </section>
-
     <section class="bento-section" id="solutions">
         <div class="section-header">
             <h2>NextGen Solutions.</h2>
+            <div class="header-cta">Clicca sulle card per le specifiche tecniche ⭣</div>
         </div>
         
         <div class="bento-grid">
             
-            <div class="bento-card card-large">
+            <div class="bento-card card-large open-modal" 
+                 data-title="Gabbione Strutturale" 
+                 data-img="https://images.unsplash.com/photo-1541888081604-0617300c3c6d?auto=format&fit=crop&w=1200&q=80"
+                 data-content="Inventato nel 1879 da Raffaele Maccaferri, il gabbione è la soluzione più versatile e sostenibile per il controllo dell'erosione. La sua natura porosa permette il naturale drenaggio delle acque e facilita la crescita della vegetazione, trasformando un'opera ingegneristica in un ecosistema vivo. Ideale per opere idrauliche fluviali, muri di sostegno a gravità e protezione architettonica.">
+                
+                <div class="expand-cue"><span>+</span> Scopri</div>
+                
                 <div class="card-content" style="margin-top: auto;">
                     <h3>L'invenzione originale, evoluta.</h3>
-                    <p>Il Gabbione Maccaferri non è solo storia. Oggi è il modulo base per architetture di protezione del suolo capaci di rigenerare la flora locale, riducendo l'impatto ambientale.</p>
+                    <p>Il Gabbione Maccaferri non è solo storia. Oggi è il modulo base per architetture di protezione del suolo capaci di rigenerare la flora locale.</p>
+                    <ul class="tech-list">
+                        <li>Drenaggio naturale garantito</li>
+                        <li>Integrazione paesaggistica attiva</li>
+                        <li>Flessibilità strutturale anti-sismica</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="bento-card card-wide">
+            <div class="bento-card card-wide open-modal"
+                 data-title="Rivestimento Polimac®" 
+                 data-img="https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200&q=80"
+                 data-content="Il rivestimento Polimac® rappresenta l'apice della ricerca chimico-meccanica. Formulato per resistere ad altissime abrasioni causate da detriti e a condizioni chimiche severe, supera nettamente le tradizionali coperture in PVC o zinco. I test certificati dimostrano un'estensione della vita operativa dell'opera fino a 120 anni, garantendo minori costi di manutenzione e una decisa riduzione dell'impronta ambientale dell'infrastruttura.">
+                
+                <div class="expand-cue"><span>+</span> Scopri</div>
+                
                 <div class="card-icon">
                     <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
@@ -317,36 +291,134 @@
                 </div>
             </div>
 
-            <div class="bento-card card-small">
+            <div class="bento-card card-small open-modal"
+                 data-title="Geosintetici e Difesa Suolo" 
+                 data-img="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+                 data-content="Le geostuoie tridimensionali e i sistemi di rinforzo bloccano l'erosione superficiale prima che diventi una minaccia strutturale per strade e ferrovie. Intrappolano il terreno vegetale garantendo un rapido inverdimento dei pendii, creando un'armatura invisibile che lavora in perfetta sinergia con gli apparati radicali della flora locale.">
+                
+                <div class="expand-cue"><span>+</span> Scopri</div>
+                
                 <h3>Zero Erosione.</h3>
                 <p>Geostuoie avanzate che integrano natura e calcolo strutturale, prevenendo frane e smottamenti.</p>
             </div>
             
-            <div class="bento-card card-small" style="background: rgba(0, 59, 92, 0.8);">
+            <div class="bento-card card-small open-modal" style="background: rgba(0, 59, 92, 0.8);"
+                 data-title="Suite Software MacRead" 
+                 data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
+                 data-content="MacRead è il nostro pacchetto software avanzato per la progettazione geotecnica. Permette agli ingegneri di modellare le condizioni del terreno, calcolare la stabilità dei versanti e prevedere i carichi strutturali prima della cantierizzazione. Offre interfacce intuitive, algoritmi rigorosi e piena conformità ai più recenti standard internazionali costruttivi.">
+                
+                <div class="expand-cue"><span>+</span> Scopri</div>
+                
                 <h3 style="color: var(--tech-accent);">MacRead</h3>
-                <p>Software di progettazione proprietario per la modellazione predittiva della stabilità dei versanti.</p>
+                <p>Software di progettazione proprietario per la modellazione predittiva della stabilità dei versanti e opere in terra rinforzata.</p>
             </div>
 
         </div>
     </section>
 
     <section class="heritage-section" id="heritage">
-        <h2>Un'eredità di innovazione.</h2>
-        <p>Da una piccola bottega di Zola Predosa a leader globale dell'ingegneria ambientale. Non abbiamo mai smesso di reinventare il modo in cui l'uomo interagisce con il pianeta.</p>
-        <div class="timeline-box">
-            <div class="year">1879</div>
-            <div style="text-align: left; max-width: 500px;">
-                <h3 style="margin-bottom: 10px; color: var(--tech-accent);">L'invenzione che ha cambiato tutto</h3>
-                <p style="color: var(--text-secondary); font-size: 0.95rem;">Raffaele Maccaferri inventa il gabbione, una rete metallica riempita di pietre. Una soluzione semplice, brillante e sostenibile che ancora oggi difende le coste e le infrastrutture di tutto il mondo.</p>
+        <div class="heritage-header">
+            <h2>Timeline di Innovazione</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Poche aziende tecnologiche possono vantare oltre un secolo di storia. Da Zola Predosa (BO) al mondo intero.</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1879</div>
+                    <h3>L'invenzione originale</h3>
+                    <p>Raffaele Maccaferri inventa il gabbione, impiegato per la prima volta per rinforzare con successo gli argini del fiume Reno a Casalecchio. È l'inizio di una rivoluzione nelle opere civili.</p>
+                </div>
             </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Anni '90</div>
+                    <h3>Espansione Globale</h3>
+                    <p>L'azienda accelera la sua espansione internazionale. Dai grandi progetti autostradali europei alla stabilizzazione delle infrastrutture in India e nelle Americhe, il marchio diventa sinonimo di difesa del suolo.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2006</div>
+                    <h3>L'era dei Geosintetici</h3>
+                    <p>Attraverso acquisizioni strategiche (come Linear Composites in UK e BMD in Brasile), Maccaferri entra prepotentemente nel mercato dei geosintetici, geogriglie e rinforzi polimerici ad alta resistenza.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Oggi</div>
+                    <h3>Avanguardia Sostenibile</h3>
+                    <p>Con oltre 3.000 dipendenti, software di calcolo proprietari e nuovi materiali hi-tech (Polimac®), l'obiettivo è guidare la transizione ecologica delle infrastrutture civili a livello mondiale.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="#contact" class="btn-tech">Scopri il gruppo Maccaferri</a>
         </div>
     </section>
 
     <footer>
         <span class="logo">MACCAFERRI</span>
         <p>Officine Maccaferri S.p.A. — Engineering a better solution since 1879.</p>
-        <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 30px;">Concept Design a scopo di portfolio. Non affiliato ufficialmente.</p>
+        <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 30px;">Concept Design a scopo di portfolio. Non affiliato ufficialmente con l'azienda.</p>
     </footer>
+
+    <div id="techModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="btn-close">&times;</button>
+            <img id="modalImg" src="" alt="Dettaglio Tecnico" class="modal-img">
+            <div class="modal-content-area">
+                <h2 id="modalTitle">Titolo Modale</h2>
+                <p id="modalBody">Contenuto descrittivo del modale.</p>
+                <a href="#contact" class="btn-tech">Scarica Scheda Tecnica Completa</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modals = document.querySelectorAll('.open-modal');
+        const modalOverlay = document.getElementById('techModal');
+        const closeBtn = document.querySelector('.btn-close');
+        
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        // Apri il modale quando si clicca una card
+        modals.forEach(card => {
+            card.addEventListener('click', () => {
+                modalImg.src = card.getAttribute('data-img');
+                modalTitle.textContent = card.getAttribute('data-title');
+                modalBody.textContent = card.getAttribute('data-content');
+                
+                modalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina sotto
+            });
+        });
+
+        // Chiudi il modale
+        const closeModal = () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Riattiva lo scroll
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        
+        // Chiudi il modale se si clicca fuori dalla finestra nera
+        modalOverlay.addEventListener('click', (e) => {
+            if(e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
