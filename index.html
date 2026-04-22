@@ -74,23 +74,21 @@
             z-index: 1;
         }
 
-        /* SFONDO NATURA (Parallax + Maschera di dissolvenza) */
+        /* SFONDO INFRASTRUTTURA/NATURA (Parallax + Maschera di dissolvenza) */
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 120%;
-            /* Immagine di una foresta fitta vista dall'alto */
-            background: url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
-            background-attachment: fixed; /* Crea l'effetto parallasse allo scroll */
+            /* Immagine di un'infrastruttura (strada di montagna con muri di contenimento) immersa nella natura */
+            background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            background-attachment: fixed; 
             z-index: -2;
-            opacity: 0.18; /* Molto scura per non disturbare la lettura */
-            /* Questa maschera sfuma l'immagine verso il trasparente in basso, fondendola col sito */
+            opacity: 0.25; /* Più alta per far vedere l'opera ingegneristica */
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-            mix-blend-mode: luminosity; /* Rende la foresta più blu/fredda fondendola col tema */
+            mix-blend-mode: luminosity; 
         }
 
-        /* Eyebrow rifinito */
         .eyebrow {
             font-family: 'Inter', sans-serif; color: var(--tech-accent); font-size: 0.8rem; font-weight: 600;
             text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; 
