@@ -46,22 +46,14 @@
 
         /* --- NAVIGAZIONE --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 15px 5%;
+            position: fixed; top: 0; width: 100%; padding: 20px 5%;
             display: flex; justify-content: space-between; align-items: center;
             background: rgba(1, 17, 28, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border); z-index: 100;
         }
 
-        /* --- LOGO IMMAGINE ADATTATO --- */
-        .logo { display: flex; align-items: center; text-decoration: none; }
-        .brand-logo {
-            height: 45px; /* Regola l'altezza come preferisci */
-            width: auto;
-            /* Questo filtro trasforma il logo originale in bianco puro */
-            filter: brightness(0) invert(1);
-            transition: opacity 0.3s ease;
-        }
-        .brand-logo:hover { opacity: 0.8; }
+        /* Logo Testuale Originale */
+        .logo { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--text-primary); text-decoration: none; }
 
         .nav-links { display: flex; gap: 40px; list-style: none; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; }
@@ -81,6 +73,7 @@
             text-align: center; padding: 120px 20px 60px; position: relative; animation: fadeIn 1.5s ease-out;
         }
 
+        /* Eyebrow rifinito (Nuovo Font Inter 600) */
         .eyebrow {
             font-family: 'Inter', sans-serif; color: var(--tech-accent); font-size: 0.8rem; font-weight: 600;
             text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; 
@@ -265,9 +258,7 @@
     <div class="ambient-glow-green"></div>
 
     <nav>
-        <a href="#" class="logo">
-            <img src="logo-maccaferri.png" alt="Gruppo Industriale Maccaferri" class="brand-logo">
-        </a>
+        <a href="#" class="logo">MACCAFERRI</a>
         <ul class="nav-links">
             <li><a href="#vision">Vision</a></li>
             <li><a href="#solutions">Architettura</a></li>
@@ -416,10 +407,8 @@
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <a href="#" class="logo">
-                    <img src="logo-maccaferri.png" alt="Gruppo Industriale Maccaferri" class="brand-logo">
-                </a>
-                <p style="margin-top: 20px;">Engineering a better solution since 1879. Leader globale nelle soluzioni geotecniche e ambientali avanzate.</p>
+                <a href="#" class="logo">MACCAFERRI</a>
+                <p style="margin-top: 15px;">Engineering a better solution since 1879. Leader globale nelle soluzioni geotecniche e ambientali avanzate.</p>
             </div>
 
             <div class="footer-certs">
@@ -467,7 +456,7 @@
             <div class="modal-content-area">
                 <h2 id="modalTitle">Titolo Modale</h2>
                 <p id="modalBody">Contenuto descrittivo del modale.</p>
-                <a href="#" class="btn-tech" style="display: inline-block;">Richiedi Informazioni</a>
+                <a href="#" class="btn-tech" style="display: inline-block;">Scarica Documentazione</a>
             </div>
         </div>
     </div>
