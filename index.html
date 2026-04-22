@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maccaferri | Ingegneria Avanguardista</title>
+    <title>Gruppo Industriale Maccaferri | Ingegneria Avanguardista</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* --- CORPORATE DARK SYSTEM --- */
@@ -46,13 +46,17 @@
 
         /* --- NAVIGAZIONE --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 20px 5%;
+            position: fixed; top: 0; width: 100%; padding: 15px 5%;
             display: flex; justify-content: space-between; align-items: center;
             background: rgba(1, 17, 28, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border); z-index: 100;
         }
 
-        .logo { font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; color: var(--text-primary); text-decoration: none; }
+        /* --- LOGO GRUPPO INDUSTRIALE --- */
+        .logo { display: flex; flex-direction: column; text-decoration: none; color: var(--text-primary); }
+        .logo-top { font-size: 0.5rem; font-weight: 600; letter-spacing: 0.3em; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 2px; }
+        .logo-bottom { font-weight: 900; font-size: 1.4rem; letter-spacing: 0.02em; line-height: 1; }
+
         .nav-links { display: flex; gap: 40px; list-style: none; }
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--tech-accent); }
@@ -71,9 +75,12 @@
             text-align: center; padding: 120px 20px 60px; position: relative; animation: fadeIn 1.5s ease-out;
         }
 
+        /* Eyebrow rifinito (Nuovo Font) */
         .eyebrow {
-            font-family: 'JetBrains Mono', monospace; color: var(--tech-accent); font-size: 0.85rem; text-transform: uppercase;
-            letter-spacing: 0.2em; margin-bottom: 24px; border: 1px solid rgba(74, 222, 128, 0.3); padding: 6px 16px; border-radius: 50px;
+            font-family: 'Inter', sans-serif; color: var(--tech-accent); font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; 
+            border: 1px solid rgba(74, 222, 128, 0.3); padding: 8px 20px; border-radius: 50px;
+            background: rgba(74, 222, 128, 0.05);
         }
 
         .hero h1 {
@@ -89,7 +96,7 @@
             background: var(--bg-surface); border: 1px solid var(--glass-border); border-radius: 20px; backdrop-filter: blur(10px);
         }
         .spec-item { text-align: left; }
-        .spec-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; }
+        .spec-label { font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
         .spec-value { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
         .spec-value span { color: var(--tech-accent); font-size: 1rem; margin-left: 5px; }
 
@@ -97,7 +104,9 @@
         .bento-section { padding: 120px 5%; max-width: 1400px; margin: 0 auto; }
         .section-header { margin-bottom: 60px; display: flex; justify-content: space-between; align-items: flex-end; }
         .section-header h2 { font-size: 3rem; letter-spacing: -0.03em; }
-        .header-cta { font-family: 'JetBrains Mono', monospace; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        /* Nuova dicitura CTA professionale */
+        .header-cta { font-family: 'Inter', sans-serif; color: var(--text-secondary); font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;}
 
         .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 350px); gap: 20px; }
 
@@ -125,7 +134,7 @@
         .bento-card h3 { font-size: 1.8rem; letter-spacing: -0.02em; margin-bottom: 10px; }
         .bento-card p { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
 
-        .tech-list { margin-top: 20px; list-style: none; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--tech-accent); }
+        .tech-list { margin-top: 20px; list-style: none; font-size: 0.85rem; font-weight: 500; color: var(--tech-accent); }
         .tech-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
         .tech-list li::before { content: '✓'; font-weight: bold; }
 
@@ -182,7 +191,7 @@
         }
         .timeline-content:hover { border-color: rgba(255,255,255,0.2); }
         
-        .timeline-year { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--tech-accent); margin-bottom: 10px; }
+        .timeline-year { font-size: 1.5rem; font-weight: 700; color: var(--tech-accent); margin-bottom: 10px; }
         .timeline-content h3 { font-size: 1.5rem; margin-bottom: 15px; }
         .timeline-content p { color: var(--text-secondary); font-size: 0.95rem; }
 
@@ -193,12 +202,11 @@
             max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px;
         }
 
-        .footer-brand .logo { font-size: 2rem; margin-bottom: 15px; display: block; }
+        .footer-brand .logo { margin-bottom: 20px; }
         .footer-brand p { color: var(--text-secondary); font-size: 0.95rem; max-width: 400px; }
 
         .footer-certs h4 {
-            font-family: 'JetBrains Mono', monospace; color: var(--text-secondary);
-            font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 20px; text-transform: uppercase;
+            color: var(--text-secondary); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 20px; text-transform: uppercase; font-weight: 600;
         }
 
         .badges-wrapper { display: flex; gap: 15px; flex-wrap: wrap; }
@@ -217,7 +225,7 @@
         .cert-badge svg { width: 28px; height: 28px; color: var(--tech-accent); }
         
         .cert-text { display: flex; flex-direction: column; font-weight: 700; font-size: 0.9rem; line-height: 1.2; }
-        .cert-text small { font-weight: 400; color: var(--text-secondary); font-size: 0.75rem; }
+        .cert-text small { font-weight: 400; color: var(--text-secondary); font-size: 0.75rem; margin-top: 2px;}
 
         .footer-bottom {
             max-width: 1400px; margin: 60px auto 0; padding-top: 30px; border-top: 1px solid var(--glass-border);
@@ -235,6 +243,7 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 3rem; }
             .tech-specs { flex-direction: column; gap: 20px; align-items: center; text-align: center; padding: 30px; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
             .bento-grid { grid-template-columns: 1fr; }
             .card-large, .card-wide, .card-small { grid-column: span 1; min-height: 300px; }
             
@@ -253,7 +262,10 @@
     <div class="ambient-glow-green"></div>
 
     <nav>
-        <a href="#" class="logo">MACCAFERRI</a>
+        <a href="#" class="logo">
+            <span class="logo-top">Gruppo Industriale</span>
+            <span class="logo-bottom">MACCAFERRI</span>
+        </a>
         <ul class="nav-links">
             <li><a href="#vision">Vision</a></li>
             <li><a href="#solutions">Architettura</a></li>
@@ -286,7 +298,7 @@
     <section class="bento-section" id="solutions">
         <div class="section-header">
             <h2>NextGen Solutions.</h2>
-            <div class="header-cta">Clicca sulle card per le specifiche tecniche ⭣</div>
+            <div class="header-cta">Esplora le specifiche tecniche ↓</div>
         </div>
         
         <div class="bento-grid">
@@ -402,8 +414,11 @@
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
-                <span class="logo">MACCAFERRI</span>
-                <p>Officine Maccaferri S.p.A. — Engineering a better solution since 1879. Leader globale nelle soluzioni geotecniche e ambientali avanzate.</p>
+                <a href="#" class="logo">
+                    <span class="logo-top">Gruppo Industriale</span>
+                    <span class="logo-bottom">MACCAFERRI</span>
+                </a>
+                <p>Engineering a better solution since 1879. Leader globale nelle soluzioni geotecniche e ambientali avanzate.</p>
             </div>
 
             <div class="footer-certs">
