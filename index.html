@@ -131,15 +131,17 @@
         .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-deep) 0%, transparent 60%); border-radius: 28px;}
         .slide-content { position: relative; z-index: 2; }
 
-        /* --- FUTURA SECTION (FOTO STATICA) --- */
+        /* --- FUTURA SECTION CON VIDEO E FALLBACK --- */
         .futura-section {
             position: relative; padding: 160px 5%; text-align: center; overflow: hidden; z-index: 1;
             border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
+            background-color: var(--bg-deep);
         }
         
-        .futura-bg-image {
+        /* Il video in background */
+        .futura-video-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            object-fit: cover; z-index: -2; opacity: 0.8;
+            object-fit: cover; z-index: -2; opacity: 0.7;
         }
 
         .futura-overlay {
@@ -149,6 +151,7 @@
         
         .futura-content { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
         
+        /* Logo Futura */
         .futura-brand-logo {
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px;
         }
@@ -204,19 +207,23 @@
         footer { padding: 80px 5% 40px; border-top: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); position: relative; z-index: 2; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 60px; max-width: 1400px; margin: 0 auto; margin-bottom: 60px; }
         .footer-brand p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; max-width: 400px; margin-top: 20px; }
+        
         .footer-socials { display: flex; gap: 15px; margin-top: 30px; }
         .social-icon { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); display: flex; justify-content: center; align-items: center; color: var(--text-primary); transition: 0.3s; }
         .social-icon:hover { background: var(--tech-accent); color: var(--bg-deep); border-color: var(--tech-accent); transform: translateY(-3px); }
+        
         .footer-links h4, .footer-certs h4 { color: var(--text-secondary); letter-spacing: 0.1em; font-size: 0.85rem; margin-bottom: 25px; text-transform: uppercase; font-weight: 600; }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 12px; }
         .footer-links a { color: var(--text-primary); text-decoration: none; opacity: 0.8; transition: 0.3s; font-size: 0.95rem; }
         .footer-links a:hover { color: var(--tech-accent); opacity: 1; }
+
         .badges-wrapper { display: flex; flex-direction: column; gap: 15px; }
         .cert-badge { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); padding: 15px 20px; border-radius: 16px; border: 1px solid var(--glass-border); text-decoration: none; color: white; transition: 0.3s; cursor: pointer; }
         .cert-badge:hover { border-color: var(--tech-accent); transform: translateY(-3px); background: rgba(255,255,255,0.08); box-shadow: 0 10px 20px rgba(74, 222, 128, 0.1); }
         .cert-text { display: flex; flex-direction: column; font-weight: 700; font-size: 0.9rem; line-height: 1.2; }
         .cert-text small { font-weight: 400; color: var(--text-secondary); font-size: 0.75rem; margin-top: 3px; }
+
         .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 30px; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font-size: 0.85rem; }
         .footer-bottom-links { display: flex; gap: 20px; }
         .footer-bottom-links a { color: var(--text-secondary); text-decoration: none; transition: 0.3s; }
@@ -276,19 +283,19 @@
     <section class="bento-section" id="solutions">
         <div class="section-header"><h2>Soluzioni NextGen.</h2></div>
         <div class="bento-grid">
-            <div class="bento-card card-large" onclick="openTech('Gabbione Maccaferri', 'https://images.unsplash.com/photo-1541888081604-0617300c3c6d', 'L\'ingegneria biomimetica applicata alla difesa idraulica. Il modulo originale che ha definito il controllo fluviale globale, oggi evoluto in una cellula architettonica capace di integrare vegetazione e stabilità strutturale permanente.')">
+            <div class="bento-card card-large" onclick="openTech('Gabbione Maccaferri', 'https://images.unsplash.com/photo-1541888081604-0617300c3c6d?auto=format&fit=crop&w=1200&q=80', 'L\'ingegneria biomimetica applicata alla difesa idraulica. Il modulo originale che ha definito il controllo fluviale globale, oggi evoluto in una cellula architettonica capace di integrare vegetazione e stabilità strutturale permanente.')">
                 <button class="expand-btn">Evoluzione Strutturale +</button>
                 <div><h3>L'invenzione originale, evoluta.</h3><p>Il Gabbione Maccaferri non è solo storia. Oggi è il modulo base per architetture di protezione del suolo capaci di rigenerare la flora locale.</p></div>
             </div>
-            <div class="bento-card card-wide" onclick="openTech('Rivestimento Polimac®', 'https://images.unsplash.com/photo-1581092335397-9583eb92d232', 'Un salto quantico nella scienza dei materiali. Polimac® è una nanotecnologia polimerica esclusiva, testata per resistere a cicli di abrasione estremi e aggressioni chimiche in ambienti ostili.')">
+            <div class="bento-card card-wide" onclick="openTech('Rivestimento Polimac®', 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200&q=80', 'Un salto quantico nella scienza dei materiali. Polimac® è una nanotecnologia polimerica esclusiva, testata per resistere a cicli di abrasione estremi e aggressioni chimiche in ambienti ostili.')">
                 <button class="expand-btn">Analisi Molecolare +</button>
                 <h3>Rivestimento Polimac®</h3><p>Un polimero esclusivo progettato per resistere all'abrasione meccanica e agli attacchi chimici.</p>
             </div>
-            <div class="bento-card card-small" onclick="openTech('Controllo Erosivo NBS', 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b', 'Protocolli Nature-Based Solutions per la prevenzione del dissesto idrogeologico. Sistemi di ancoraggio e geostuoie pre-seminate che creano una simbiosi perfetta tra calcolo meccanico e crescita vegetativa.')">
+            <div class="bento-card card-small" onclick="openTech('Controllo Erosivo NBS', 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', 'Protocolli Nature-Based Solutions per la prevenzione del dissesto idrogeologico. Sistemi di ancoraggio e geostuoie pre-seminate che creano una simbiosi perfetta tra calcolo meccanico e crescita vegetativa.')">
                 <button class="expand-btn">Protocolli NBS +</button>
                 <h3>Zero Erosione.</h3><p>Sinergia tra natura e calcolo per pendii indistruttibili.</p>
             </div>
-            <div class="bento-card card-small" style="background: rgba(0, 59, 92, 0.8);" onclick="openTech('Suite MacRead', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71', 'La nostra piattaforma computazionale per ingegneri. Modellazione agli elementi finiti per la stabilità dinamica dei versanti e previsione dei carichi strutturali in tempo reale.')">
+            <div class="bento-card card-small" style="background: rgba(0, 59, 92, 0.8);" onclick="openTech('Suite MacRead', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80', 'La nostra piattaforma computazionale per ingegneri. Modellazione agli elementi finiti per la stabilità dinamica dei versanti e previsione dei carichi strutturali in tempo reale.')">
                 <button class="expand-btn">Algoritmi Predittivi +</button>
                 <h3 style="color: var(--tech-accent);">MacRead</h3><p>Ecosistema di progettazione computazionale avanzata.</p>
             </div>
@@ -298,30 +305,32 @@
     <section class="case-studies" id="opere">
         <div class="section-header" style="max-width: 1400px; margin: 0 auto 40px; padding: 0 5%;"><h2>Opere Iconiche.</h2></div>
         <div class="slider-container">
-            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/12512710982477941793_0')" 
-                 onclick="openCase('Pakyong Airport, India', 'http://googleusercontent.com/image_collection/image_retrieval/12512710982477941793_0', 'Progettazione e costruzione di strutture in terra rinforzata (Terramesh) per supportare la pista di atterraggio a oltre 1.400 metri di altitudine. I muri di sostegno sfiorano i 74 metri di altezza, rendendoli tra i più alti al mondo nel loro genere, garantendo stabilità sismica e idrogeologica in condizioni montane estreme.')">
+            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1551043047-1d2adf00f3fd?auto=format&fit=crop&w=800&q=80')" 
+                 onclick="openCase('Pakyong Airport, India', 'https://images.unsplash.com/photo-1551043047-1d2adf00f3fd?auto=format&fit=crop&w=1200&q=80', 'Progettazione e costruzione di strutture in terra rinforzata (Terramesh) per supportare la pista di atterraggio a oltre 1.400 metri di altitudine. I muri di sostegno sfiorano i 74 metri di altezza, rendendoli tra i più alti al mondo nel loro genere, garantendo stabilità sismica e idrogeologica in condizioni montane estreme.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">Pakyong Airport, India</h3><p style="color: var(--text-secondary);">Oltre 70 metri di Muri in Terra Rinforzata.</p></div>
             </div>
             
-            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/15971581347251468395_0')"
-                 onclick="openCase('Jwaneng Mine, Botswana', 'http://googleusercontent.com/image_collection/image_retrieval/15971581347251468395_0', 'Intervento critico per la mitigazione del rischio di caduta massi (Rockfall) in una delle miniere di diamanti più grandi del pianeta. Installazione di reti paramassi ad alta resistenza in ambienti di scavo estremi, assicurando la continuità operativa in totale sicurezza.')">
+            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=800&q=80')"
+                 onclick="openCase('Jwaneng Mine, Botswana', 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=1200&q=80', 'Intervento critico per la mitigazione del rischio di caduta massi (Rockfall) in una delle miniere di diamanti più grandi del pianeta. Installazione di reti paramassi ad alta resistenza in ambienti di scavo estremi, assicurando la continuità operativa in totale sicurezza.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">Jwaneng Mine, Botswana</h3><p style="color: var(--text-secondary);">Mitigazione crolli in aree minerarie.</p></div>
             </div>
             
-            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/18235100402611305498_0')"
-                 onclick="openCase('Alta Velocità, Italia', 'http://googleusercontent.com/image_collection/image_retrieval/18235100402611305498_0', 'Consolidamento dei rilevati ferroviari e stabilizzazione del sottofondo per la linea Alta Velocità. Utilizzo di geogriglie e materiali geosintetici avanzati per distribuire i carichi dinamici dei treni, riducendo le vibrazioni e prevenendo cedimenti nel lungo periodo.')">
+            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80')"
+                 onclick="openCase('Alta Velocità, Italia', 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80', 'Consolidamento dei rilevati ferroviari e stabilizzazione del sottofondo per la linea Alta Velocità. Utilizzo di geogriglie e materiali geosintetici avanzati per distribuire i carichi dinamici dei treni, riducendo le vibrazioni e prevenendo cedimenti nel lungo periodo.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">Alta Velocità, Italia</h3><p style="color: var(--text-secondary);">Rinforzo strutturale della rete ferroviaria.</p></div>
             </div>
             
-            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/13786562027626673962_0')"
-                 onclick="openCase('River Humber, UK', 'http://googleusercontent.com/image_collection/image_retrieval/13786562027626673962_0', 'Difesa costiera ed estuarina per contrastare la forza erosiva delle maree del Mare del Nord. Le nostre soluzioni storiche in gabbioni a mezzo-tide hanno creato barriere permeabili che proteggono l\'entroterra da decenni, preservando contemporaneamente l\'habitat naturale marino.')">
+            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80')"
+                 onclick="openCase('River Humber, UK', 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', 'Difesa costiera ed estuarina per contrastare la forza erosiva delle maree del Mare del Nord. Le nostre soluzioni storiche in gabbioni a mezzo-tide hanno creato barriere permeabili che proteggono l\'entroterra da decenni, preservando contemporaneamente l\'habitat naturale marino.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">River Humber, UK</h3><p style="color: var(--text-secondary);">Protezione argini attiva da oltre 50 anni.</p></div>
             </div>
         </div>
     </section>
 
     <section class="futura-section" id="futura">
-        <img src="Maccaferri-Futura2-scaled.jpg" class="futura-bg-image" alt="Maccaferri Futura Sailboat">
+        <video class="futura-video-bg" autoplay loop muted playsinline poster="Maccaferri-Futura2-scaled.jpg">
+            <source src="Creazione_Video_Animato_Personalizzato.mp4" type="video/mp4">
+        </video>
         <div class="futura-overlay"></div>
         
         <div class="futura-content">
@@ -382,7 +391,7 @@
             <div class="footer-certs">
                 <h4>Certifications</h4>
                 <div class="badges-wrapper">
-                    <a href="#" class="cert-badge" onclick="openTech('ISO 9001:2015', 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c', 'Bureau Veritas N° IT331370. Valido fino al 15 Maggio 2027. Certificazione dei processi qualitativi, commerciali e assistenziali.')">
+                    <a href="#" class="cert-badge" onclick="openTech('ISO 9001:2015', 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80', 'Bureau Veritas N° IT331370. Valido fino al 15 Maggio 2027. Certificazione dei processi qualitativi, commerciali e assistenziali.')">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--tech-accent)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                         <div class="cert-text">ISO 9001:2015<small>Bureau Veritas</small></div>
                     </a>
