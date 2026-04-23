@@ -75,7 +75,7 @@
         .hero h1 { font-size: clamp(3rem, 7vw, 6rem); font-weight: 900; line-height: 1; margin-bottom: 30px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .hero p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.9); max-width: 650px; margin-bottom: 60px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); font-weight: 500; }
 
-        /* --- TECH SPECS (Font aggiornato) --- */
+        /* --- TECH SPECS --- */
         .tech-specs {
             display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(40px, 6vw, 100px); 
             padding: 40px 60px; background: rgba(1, 17, 28, 0.6); border: 1px solid var(--glass-border); 
@@ -83,8 +83,8 @@
         }
         .spec-item { text-align: left; display: flex; flex-direction: column; }
         .spec-label { 
-            font-family: 'Inter', sans-serif; /* Rimosso JetBrains Mono */
-            font-weight: 700; /* Messo in grassetto */
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
             font-size: 0.8rem; color: var(--text-secondary); 
             margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;
         }
@@ -126,19 +126,17 @@
         .slider-container { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 40px; scrollbar-width: none; }
         .slider-container::-webkit-scrollbar { display: none; }
         
-        /* Cursor pointer aggiunto per far capire che sono cliccabili */
         .slide { min-width: 350px; height: 450px; border-radius: 28px; background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-end; padding: 30px; border: 1px solid var(--glass-border); scroll-snap-align: start; transition: transform 0.3s; cursor: pointer; }
         .slide:hover { transform: translateY(-5px); border-color: var(--tech-accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--bg-deep) 0%, transparent 60%); border-radius: 28px;}
         .slide-content { position: relative; z-index: 2; }
 
-        /* --- FUTURA SECTION CON FOTO STATICA --- */
+        /* --- FUTURA SECTION (FOTO STATICA) --- */
         .futura-section {
             position: relative; padding: 160px 5%; text-align: center; overflow: hidden; z-index: 1;
             border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
         }
         
-        /* Foto statica caricata locale */
         .futura-bg-image {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             object-fit: cover; z-index: -2; opacity: 0.8;
@@ -300,23 +298,23 @@
     <section class="case-studies" id="opere">
         <div class="section-header" style="max-width: 1400px; margin: 0 auto 40px; padding: 0 5%;"><h2>Opere Iconiche.</h2></div>
         <div class="slider-container">
-            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1551043047-1d2adf00f3fd?auto=format&fit=crop&w=800&q=80')" 
-                 onclick="openCase('Pakyong Airport, India', 'https://images.unsplash.com/photo-1551043047-1d2adf00f3fd?auto=format&fit=crop&w=1200&q=80', 'Progettazione e costruzione di strutture in terra rinforzata (Terramesh) per supportare la pista di atterraggio a oltre 1.400 metri di altitudine. I muri di sostegno sfiorano i 74 metri di altezza, rendendoli tra i più alti al mondo nel loro genere, garantendo stabilità sismica e idrogeologica in condizioni montane estreme.')">
+            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/12512710982477941793_0')" 
+                 onclick="openCase('Pakyong Airport, India', 'http://googleusercontent.com/image_collection/image_retrieval/12512710982477941793_0', 'Progettazione e costruzione di strutture in terra rinforzata (Terramesh) per supportare la pista di atterraggio a oltre 1.400 metri di altitudine. I muri di sostegno sfiorano i 74 metri di altezza, rendendoli tra i più alti al mondo nel loro genere, garantendo stabilità sismica e idrogeologica in condizioni montane estreme.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">Pakyong Airport, India</h3><p style="color: var(--text-secondary);">Oltre 70 metri di Muri in Terra Rinforzata.</p></div>
             </div>
             
-            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=800&q=80')"
-                 onclick="openCase('Jwaneng Mine, Botswana', 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=1200&q=80', 'Intervento critico per la mitigazione del rischio di caduta massi (Rockfall) in una delle miniere di diamanti più grandi del pianeta. Installazione di reti paramassi ad alta resistenza in ambienti di scavo estremi, assicurando la continuità operativa in totale sicurezza.')">
+            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/15971581347251468395_0')"
+                 onclick="openCase('Jwaneng Mine, Botswana', 'http://googleusercontent.com/image_collection/image_retrieval/15971581347251468395_0', 'Intervento critico per la mitigazione del rischio di caduta massi (Rockfall) in una delle miniere di diamanti più grandi del pianeta. Installazione di reti paramassi ad alta resistenza in ambienti di scavo estremi, assicurando la continuità operativa in totale sicurezza.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">Jwaneng Mine, Botswana</h3><p style="color: var(--text-secondary);">Mitigazione crolli in aree minerarie.</p></div>
             </div>
             
-            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=800&q=80')"
-                 onclick="openCase('Alta Velocità, Italia', 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80', 'Consolidamento dei rilevati ferroviari e stabilizzazione del sottofondo per la linea Alta Velocità. Utilizzo di geogriglie e materiali geosintetici avanzati per distribuire i carichi dinamici dei treni, riducendo le vibrazioni e prevenendo cedimenti nel lungo periodo.')">
+            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/18235100402611305498_0')"
+                 onclick="openCase('Alta Velocità, Italia', 'http://googleusercontent.com/image_collection/image_retrieval/18235100402611305498_0', 'Consolidamento dei rilevati ferroviari e stabilizzazione del sottofondo per la linea Alta Velocità. Utilizzo di geogriglie e materiali geosintetici avanzati per distribuire i carichi dinamici dei treni, riducendo le vibrazioni e prevenendo cedimenti nel lungo periodo.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">Alta Velocità, Italia</h3><p style="color: var(--text-secondary);">Rinforzo strutturale della rete ferroviaria.</p></div>
             </div>
             
-            <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80')"
-                 onclick="openCase('River Humber, UK', 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80', 'Difesa costiera ed estuarina per contrastare la forza erosiva delle maree del Mare del Nord. Le nostre soluzioni storiche in gabbioni a mezzo-tide hanno creato barriere permeabili che proteggono l\'entroterra da decenni, preservando contemporaneamente l\'habitat naturale marino.')">
+            <div class="slide" style="background-image:url('http://googleusercontent.com/image_collection/image_retrieval/13786562027626673962_0')"
+                 onclick="openCase('River Humber, UK', 'http://googleusercontent.com/image_collection/image_retrieval/13786562027626673962_0', 'Difesa costiera ed estuarina per contrastare la forza erosiva delle maree del Mare del Nord. Le nostre soluzioni storiche in gabbioni a mezzo-tide hanno creato barriere permeabili che proteggono l\'entroterra da decenni, preservando contemporaneamente l\'habitat naturale marino.')">
                 <div class="slide-content"><h3 style="font-size: 1.5rem; margin-bottom: 8px;">River Humber, UK</h3><p style="color: var(--text-secondary);">Protezione argini attiva da oltre 50 anni.</p></div>
             </div>
         </div>
@@ -425,7 +423,7 @@
             <div class="modal-body" style="padding-bottom: 60px;">
                 <h2 id="caseModalTitle"></h2>
                 <p id="caseModalDesc" style="margin-bottom: 0;"></p>
-                </div>
+            </div>
         </div>
     </div>
 
@@ -468,7 +466,6 @@
             document.body.style.overflow = 'auto';
         }
         
-        // Modale Tecnico (Con Bottone)
         function openTech(title, img, desc) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalImg').src = img;
@@ -476,7 +473,6 @@
             openModal('techModal');
         }
 
-        // Modale Case Studies (Senza Bottone)
         function openCase(title, img, desc) {
             document.getElementById('caseModalTitle').innerText = title;
             document.getElementById('caseModalImg').src = img;
